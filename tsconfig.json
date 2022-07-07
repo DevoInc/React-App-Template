@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["ESNext", "dom", "dom.iterable"],
+    "moduleResolution": "node",
+    "outDir": "./dist/",
+    "jsx": "react-jsx", // https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/#jsx-factories
+    "allowJs": true,
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true
+  },
+  "include": ["src", "test/jest-setup.ts"]
+}
