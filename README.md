@@ -45,7 +45,7 @@ It is possible to build this application to work in standalone mode by:
 npm run standalone
 ````
 
-In this way, the different dependencies of the application with the Devo web core and API endpoints could be mocked. Look at [src/standaloneDependencies.ts]() to modify the standalone behaviors.
+In this way, the different dependencies of the application with the Devo web core and API endpoints could be mocked. Look at [src/standaloneDependencies.ts](https://github.com/DevoInc/React-App-Template/blob/main/src/standaloneDependencies.ts) to modify the standalone behaviors.
 
 ## Publishing and hosting
 
