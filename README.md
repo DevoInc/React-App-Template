@@ -17,7 +17,7 @@ Once you have access, to prepare the development environment you must install th
 First of all you need to clone this repository.
 
 ````npm
-git clone https://github.com/DevoInc/App-Template.git
+git clone https://github.com/DevoInc/React-App-Template.git
 ````
 
 Then install NPM dependencies.
