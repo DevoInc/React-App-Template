@@ -14,24 +14,30 @@ Once you have access, to prepare the development environment you must install th
 
 ## How to use?
 
-First of all you need to clone this repository.
+First of all you can clone this repository. And then remove the .git folder.
 
-````npm
+```npm
 git clone https://github.com/DevoInc/React-App-Template.git
-````
+```
+
+Or use [degit](https://www.npmjs.com/package/degit) to bootstrap it (this will remove the .git folder for you):
+
+```
+npx degit https://github.com/DevoInc/React-App-Template
+```
 
 Then install NPM dependencies.
 
-````npm
+```npm
 npm install
-````
+```
 
 Then you are being able to run any of this NPM commands.
 
-````npm
+```npm
 npm run dev
 npm run pro
-````
+```
 
 Using any of these commands the react project will be built in a way that is compatible with the Devo platform.
 
@@ -41,9 +47,9 @@ If you have previously installed the Devo Runner extension in google chrome you 
 
 It is possible to build this application to work in standalone mode by:
 
-````npm
+```npm
 npm run standalone
-````
+```
 
 In this way, the different dependencies of the application with the Devo web core and API endpoints could be mocked. Look at [src/standaloneDependencies.ts](https://github.com/DevoInc/React-App-Template/blob/main/src/standaloneDependencies.ts) to modify the standalone behaviors.
 
