@@ -12,8 +12,8 @@ const webpackConfig = (environment) => {
   const entry = path.resolve('src/index.tsx');
   const outputPath = path.resolve('dist');
 
-  const isWatchActive = environment.mode === DEV 
-    || environment.mode === STANDALONE;
+  const isWatchActive =
+    environment.mode === DEV || environment.mode === STANDALONE;
 
   return {
     entry,
