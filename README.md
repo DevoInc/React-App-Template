@@ -12,6 +12,8 @@ As a main requirement for the development of applications in Devo it is necessar
 
 Once you have access, to prepare the development environment you must install the google chrome extension "Devo Runner", you will find it [here](https://chrome.google.com/webstore/detail/devo-runner/apjjdfhcegcemhdhaeadkddbjhgfplmo).
 
+Also Node >= 16 is required.
+
 ## How to use?
 
 First of all you can clone this repository. And then remove the .git folder.
