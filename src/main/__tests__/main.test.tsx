@@ -1,4 +1,4 @@
-import { DevoAppProvider } from '@devo/applications-developer-kit';
+import { DevoAppProvider } from '@devoinc/app-developer-kit';
 import { render, screen } from '@testing-library/react';
 import MainComponent from '../Main';
 
