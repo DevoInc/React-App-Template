@@ -18,7 +18,7 @@ const MainComponent: FunctionComponent<MainComponentProps> = () => {
   const [userInfo] = usePromise<UserInfo | undefined>(
     fetchUserInfo,
     undefined,
-    [DevoAppProvider]
+    [DevoAppProvider],
   );
   const name = userInfo?.name;
 

@@ -13,7 +13,7 @@ if (appRoot) {
 
   const onAppUnmount = () => {
     reactRoot.unmount();
-    console.log(`dApp was unmounted`); // eslint-disable-line no-console
+    console.log(`dApp was unmounted`);
   };
 
   if (__STANDALONE__) {
@@ -21,13 +21,13 @@ if (appRoot) {
       onAppUnmount,
       standaloneDependencies,
     });
-    console.log(`dApp was mounted in standalone mode`); // eslint-disable-line no-console
+    console.log(`dApp was mounted in standalone mode`);
   } else {
     DevoAppProvider.init({
       onAppUnmount,
     });
-    console.log(`dApp was mounted`); // eslint-disable-line no-console
+    console.log(`dApp was mounted`);
   }
 } else {
-  console.log(`dApp couldn't be mounted. Root not found`); // eslint-disable-line no-console
+  console.log(`dApp couldn't be mounted. Root not found`);
 }

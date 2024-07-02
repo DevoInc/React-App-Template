@@ -2,13 +2,13 @@ import { NotiPopRequest, WebCoreRuntimeDeps } from '@devoinc/app-developer-kit';
 
 class StandaloneNotiPop {
   constructor(request: NotiPopRequest) {
-    console.log(`Creating a NotiPop`, request); // eslint-disable-line no-console
+    console.log(`Creating a NotiPop`, request);
   }
 }
 
 export const standaloneDependencies: WebCoreRuntimeDeps = {
   goToQuery: (query: string) => {
-    console.log(`Going to query '${query}'`); // eslint-disable-line no-console
+    console.log(`Going to query '${query}'`);
   },
   userInfo: {
     name: 'John Doe',
