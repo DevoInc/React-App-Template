@@ -56,6 +56,8 @@ const webpackConfig = (environment) => {
       }),
       new ESLintPlugin({
         extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+        configType: 'flat',
+        eslintPath: 'eslint/use-at-your-own-risk',
       }),
       new HtmlWebpackPlugin({
         inlineSource: '.(js|css|json)$',

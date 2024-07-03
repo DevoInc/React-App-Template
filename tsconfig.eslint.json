@@ -5,10 +5,8 @@
   "include": [
     "src",
     "test",
-    ".eslintrc.cjs",
     "eslint.config.mjs",
     ".babelrc",
-    "webpack/eslint.config.mjs",
     "jest.config.ts",
     "webpack"
   ]
