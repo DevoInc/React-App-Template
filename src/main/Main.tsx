@@ -1,49 +1,27 @@
 import { EmptyObject } from '../model/common';
 import { FunctionComponent } from 'react';
-import { usePromise } from '../hooks/usePromise';
-import {
-  DevoAppProvider,
-  NotiPopRequest,
-  UserInfo,
-} from '@devoinc/app-developer-kit';
+import { AppBar, AppLayout, Panel } from '@devoinc/genesys-ui';
 
 type MainComponentProps = EmptyObject;
 
-const fetchUserInfo = () => {
-  const dApp = DevoAppProvider.getInstance();
-  return dApp.getUserInfo();
-};
-
 const MainComponent: FunctionComponent<MainComponentProps> = () => {
-  const [userInfo] = usePromise<UserInfo | undefined>(
-    fetchUserInfo,
-    undefined,
-    [DevoAppProvider],
-  );
-  const name = userInfo?.name;
-
-  const onClick = () => {
-    const dApp = DevoAppProvider.getInstance();
-    const request: NotiPopRequest = {
-      title: 'Title',
-      text: 'Content text',
-      subtitle: 'Subtitle',
-      type: 'success',
-      position: 'top-center',
-      size: 'lg',
-      timer: 2000,
-    };
-    dApp.createNotiPop(request);
-  };
-
   return (
-    <div data-testid="my-test-id">
-      <span>
-        Hi!
-        <code>{name}</code>
-      </span>
-      <button onClick={onClick}> Send a Notipop!</button>
-    </div>
+    <AppLayout>
+      <AppLayout.Bar>
+        <AppBar sticky>
+          <AppBar.Heading id="bar-heading">Title</AppBar.Heading>
+          <AppBar.Divider />
+          <AppBar.Navigation id="bar-navigation">
+            <div />
+          </AppBar.Navigation>
+        </AppBar>
+      </AppLayout.Bar>
+      <AppLayout.Content>
+        <Panel height="100%">
+          <Panel.Body>Content</Panel.Body>
+        </Panel>
+      </AppLayout.Content>
+    </AppLayout>
   );
 };
 
