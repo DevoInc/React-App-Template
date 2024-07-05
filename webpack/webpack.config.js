@@ -68,6 +68,9 @@ const webpackConfig = (environment) => {
       }),
       new InlineChunkHtmlPlugin(HtmlWebpackPlugin, ['.(js|css|json)$']),
     ],
+    optimization: {
+      minimize: true
+    }
   };
 };
 
