@@ -2,14 +2,38 @@ import ReactDOM from 'react-dom/client';
 import Main from './main/Main';
 import { DevoAppProvider } from '@devoinc/app-developer-kit';
 import { standaloneDependencies } from './standaloneDependencies';
+import { ThemeProvider } from 'styled-components';
+import * as brand from '@devoinc/genesys-brand-devo';
+import type { Brand } from '@devoinc/genesys-tokens-types';
 
 const appRootId = 'app';
 const appRoot = document.getElementById(appRootId);
 
 if (appRoot) {
+  brand['light'];
   // initialize react app
   const reactRoot = ReactDOM.createRoot(appRoot);
-  reactRoot.render(<Main />);
+
+  const getGenesysTheme = (): Brand => {
+    let themeInfo = { meta: { scheme: 'light' } };
+
+    document.addEventListener(
+      'satellites-themes',
+      (event: CustomEvent) =>
+        (themeInfo = event.detail as { meta: { scheme: string } }),
+    );
+    document.dispatchEvent(
+      new CustomEvent('get-satellites-themes', { detail: { version: 'v1' } }),
+    );
+
+    return brand[themeInfo.meta.scheme] as Brand;
+  };
+
+  reactRoot.render(
+    <ThemeProvider theme={getGenesysTheme()}>
+      <Main />
+    </ThemeProvider>,
+  );
 
   const onAppUnmount = () => {
     reactRoot.unmount();
