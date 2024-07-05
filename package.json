@@ -4,8 +4,8 @@
   "version": "1.0.2",
   "type": "module",
   "scripts": {
-    "dev": "webpack --config webpack/webpack.config.js --mode development --env mode='development'",
-    "pro": "webpack --config webpack/webpack.config.js --mode production --env mode='production'",
+    "dev": "webpack --config webpack/webpack.dev.js --mode development --env mode='development'",
+    "pro": "webpack --config webpack/webpack.pro.js --mode production --env mode='production'",
     "standalone": "webpack --config webpack/webpack.config.js --mode development --env mode='standalone'",
     "lint": "eslint .",
     "format": "prettier -w ./src",

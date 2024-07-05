@@ -5,22 +5,13 @@ import ESLintPlugin from 'eslint-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import InlineChunkHtmlPlugin from 'inline-chunk-html-plugin';
 import generateHtml from './BaseDevoAppHTML.js';
-import webpack from 'webpack';
 
-const DEV = 'development';
-const STANDALONE = 'standalone';
-
-const webpackConfig = (environment) => {
+export const commonConfig = () => {
   const entry = path.resolve('src/index.tsx');
   const outputPath = path.resolve('dist');
-
-  const isWatchActive =
-    environment.mode === DEV || environment.mode === STANDALONE;
-
+  
   return {
     entry,
-    mode: environment.mode,
-    watch: isWatchActive,
     output: {
       path: outputPath,
       filename: 'build.js',
@@ -51,9 +42,6 @@ const webpackConfig = (environment) => {
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },
     plugins: [
-      new webpack.DefinePlugin({
-        __STANDALONE__: JSON.stringify(environment.mode === STANDALONE),
-      }),
       new ESLintPlugin({
         extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
         configType: 'flat',
@@ -73,5 +61,3 @@ const webpackConfig = (environment) => {
     }
   };
 };
-
-export default webpackConfig;
