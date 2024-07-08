@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client';
-import Main from './main/Main';
+import Main from './pages/Main';
 import { DevoAppProvider } from '@devoinc/app-developer-kit';
 import { standaloneDependencies } from './standaloneDependencies';
 import { ThemeProvider } from 'styled-components';
