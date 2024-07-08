@@ -25,7 +25,7 @@ const compat = new FlatCompat({
 
 export default [
   {
-    ignores: ['**/dist', '**/coverage'],
+    ignores: ['**/dist', '**/coverage', '**/webpack', 'eslint.config.mjs'],
   },
   ...fixupConfigRules(
     compat.extends(
