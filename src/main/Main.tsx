@@ -9,8 +9,8 @@ import {
   useTabsAccessibility,
 } from '@devoinc/genesys-ui';
 import { Tabs } from '@devoinc/genesys-ui';
-import { Tab1 } from './tab1/Tab1';
-import { Tab2 } from './tab2/Tab2';
+import Tab1 from './tab1/Tab1';
+import Tab2 from './tab2/Tab2';
 
 type MainComponentProps = EmptyObject;
 
