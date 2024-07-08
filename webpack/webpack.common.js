@@ -5,11 +5,12 @@ import ESLintPlugin from 'eslint-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import InlineChunkHtmlPlugin from 'inline-chunk-html-plugin';
 import generateHtml from './BaseDevoAppHTML.js';
+import WebpackNotifierPlugin from 'webpack-notifier';
 
 export const commonConfig = () => {
   const entry = path.resolve('src/index.tsx');
   const outputPath = path.resolve('dist');
-  
+
   return {
     entry,
     output: {
@@ -55,9 +56,10 @@ export const commonConfig = () => {
         }),
       }),
       new InlineChunkHtmlPlugin(HtmlWebpackPlugin, ['.(js|css|json)$']),
+      new WebpackNotifierPlugin(),
     ],
     optimization: {
-      minimize: true
-    }
+      minimize: true,
+    },
   };
 };
