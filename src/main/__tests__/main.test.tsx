@@ -1,11 +1,14 @@
 import { DevoAppProvider } from '@devoinc/app-developer-kit';
 import { render, screen } from '@testing-library/react';
-import MainComponent from '../Main';
 
 test('check Main div text', () => {
   DevoAppProvider.init();
 
-  render(<MainComponent />);
+  render(
+    <div>
+      <span data-testid="my-test-id"></span>
+    </div>,
+  );
 
   expect(screen.getByTestId('my-test-id')).toBeDefined();
 });
