@@ -9,7 +9,7 @@ const webpackConfig = (environment) => {
   const isWatchActive =
     environment.mode === DEV || environment.mode === STANDALONE;
 
-  return merge(commonConfig(environment), {
+  return merge(commonConfig(), {
     mode: 'development',
     devtool: 'eval',
     watch: isWatchActive,
