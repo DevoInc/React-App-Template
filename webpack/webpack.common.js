@@ -1,24 +1,18 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import path from 'path';
 import ESLintPlugin from 'eslint-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import InlineChunkHtmlPlugin from 'inline-chunk-html-plugin';
 import generateHtml from './BaseDevoAppHTML.js';
-import webpack from 'webpack';
+import WebpackNotifierPlugin from 'webpack-notifier';
 
-const DEV = 'development';
-const STANDALONE = 'standalone';
-
-const webpackConfig = (environment) => {
+export const commonConfig = () => {
   const entry = path.resolve('src/index.tsx');
   const outputPath = path.resolve('dist');
 
-  const isWatchActive =
-    environment.mode === DEV || environment.mode === STANDALONE;
-
   return {
     entry,
-    mode: environment.mode,
-    watch: isWatchActive,
     output: {
       path: outputPath,
       filename: 'build.js',
@@ -49,11 +43,10 @@ const webpackConfig = (environment) => {
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },
     plugins: [
-      new webpack.DefinePlugin({
-        __STANDALONE__: JSON.stringify(environment.mode === STANDALONE),
-      }),
       new ESLintPlugin({
         extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+        configType: 'flat',
+        eslintPath: 'eslint/use-at-your-own-risk',
       }),
       new HtmlWebpackPlugin({
         inlineSource: '.(js|css|json)$',
@@ -63,8 +56,10 @@ const webpackConfig = (environment) => {
         }),
       }),
       new InlineChunkHtmlPlugin(HtmlWebpackPlugin, ['.(js|css|json)$']),
+      new WebpackNotifierPlugin(),
     ],
+    optimization: {
+      minimize: true,
+    },
   };
 };
-
-export default webpackConfig;

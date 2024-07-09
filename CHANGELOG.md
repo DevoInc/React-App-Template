@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2
+
+- Libraries Updated
+
 ## 1.0.1
 
 - Updated eslint config

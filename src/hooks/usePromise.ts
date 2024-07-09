@@ -14,7 +14,7 @@ import { useEffect, useState } from 'react';
 export function usePromise<T>(
   promise: () => Promise<T>,
   defaultValue: T,
-  deps: any[] // eslint-disable-line @typescript-eslint/no-explicit-any
+  deps: any[], // eslint-disable-line @typescript-eslint/no-explicit-any
 ): [T, Error | undefined, boolean] {
   const [value, setValue] = useState<T>(defaultValue);
   const [error, setError] = useState<Error | undefined>(undefined);
